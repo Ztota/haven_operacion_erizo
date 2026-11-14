@@ -28,10 +28,7 @@ func _physics_process(_delta: float) -> void:
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_6t5aa")
-}, {
-"duration": 1.0,
-"texture": null
+"texture": ExtResource("2_vgqql")
 }],
 "loop": 1,
 "name": &"front",
@@ -39,10 +36,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_vgqql")
-}, {
-"duration": 1.0,
-"texture": null
+"texture": ExtResource("1_6t5aa")
 }],
 "loop": 1,
 "name": &"idle",
@@ -51,9 +45,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_fkybt")
-}, {
-"duration": 1.0,
-"texture": null
 }],
 "loop": 1,
 "name": &"turn",
