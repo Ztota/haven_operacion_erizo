@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://b4vimpmksh6y8"]
+
+[ext_resource type="Texture2D" uid="uid://c4846ebsosi5j" path="res://Assets/Characters/player/images3242.jpg" id="1_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://co2pwmxae4hi4" path="res://Assets/Characters/player/images2.jpg" id="2_vgqql"]
+[ext_resource type="Texture2D" uid="uid://cj2tn71b504se" path="res://Assets/Characters/player/images.jpg" id="3_fkybt"]
+
+[sub_resource type="GDScript" id="GDScript_6t5aa"]
+script/source = "extends CharacterBody2D
+
+@export var speed := 200.0
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+func _physics_process(_delta: float) -> void:
+	var direction := Input.get_vector(\"ui_left\", \"ui_right\", \"ui_up\", \"ui_down\")
+	velocity = direction * speed
+	move_and_slide()
+
+	if direction.x != 0:
+		sprite.play(\"turn\")
+		sprite.flip_h = direction.x > 0  
+	elif direction.y != 0:
+		sprite.play(\"front\")
+	else:
+		sprite.play(\"idle\")
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f60y1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vgqql")
+}],
+"loop": 1,
+"name": &"front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6t5aa")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fkybt")
+}],
+"loop": 1,
+"name": &"turn",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b226h"]
+size = Vector2(89.59375, 86.75)
+
+[node name="Player" type="CharacterBody2D" unique_id=1783221418]
+script = SubResource("GDScript_6t5aa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1675606580]
+position = Vector2(-253.375, 193.65625)
+scale = Vector2(0.13853791, 0.1431634)
+sprite_frames = SubResource("SpriteFrames_f60y1")
+animation = &"turn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=735264619]
+position = Vector2(-251.79688, 194.625)
+shape = SubResource("RectangleShape2D_b226h")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1562010402]

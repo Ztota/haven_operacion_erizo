@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cm72iar36nnts"]
+
+[ext_resource type="VideoStream" uid="uid://ci2v802mkk35l" path="res://Assets/Menu/MBACK.ogv" id="1_1rerr"]
+[ext_resource type="Script" uid="uid://b7a1dmk6clhrn" path="res://Scripts/menucontrol.gd" id="1_jsrd8"]
+[ext_resource type="Texture2D" uid="uid://duarlxf42m3n7" path="res://Assets/Menu/start-button.png" id="2_wwsa2"]
+[ext_resource type="Script" uid="uid://bg1nt243ckx17" path="res://Scripts/startbutton.gd" id="3_wwsa2"]
+[ext_resource type="Texture2D" uid="uid://bs5fxobmh7yx8" path="res://Assets/Menu/how-to-play.png" id="4_wbdvm"]
+[ext_resource type="Script" uid="uid://b8fq2qajc64k3" path="res://Scripts/how_to_play.gd" id="5_q3rjx"]
+
+[node name="Control" type="Control" unique_id=1096363920]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = 33.0
+offset_right = -30.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jsrd8")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1484660913]
+layout_mode = 0
+offset_left = 30.0
+offset_top = -37.0
+offset_right = 1190.0
+offset_bottom = 617.0
+stream = ExtResource("1_1rerr")
+autoplay = true
+expand = true
+loop = true
+
+[node name="Start" type="TextureButton" parent="." unique_id=906192285]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 192.0
+offset_right = 719.0
+offset_bottom = 241.0
+disabled = true
+action_mode = 0
+texture_normal = ExtResource("2_wwsa2")
+stretch_mode = 0
+script = ExtResource("3_wwsa2")
+
+[node name="HowToPlay" type="TextureButton" parent="." unique_id=957819577]
+layout_mode = 0
+offset_left = 478.0
+offset_top = 286.0
+offset_right = 724.0
+offset_bottom = 344.0
+texture_normal = ExtResource("4_wbdvm")
+stretch_mode = 0
+script = ExtResource("5_q3rjx")
